@@ -14,6 +14,8 @@
 		C86FACFF1FBC593F0094BF06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86FACFD1FBC593F0094BF06 /* LaunchScreen.storyboard */; };
 		C86FAD0A1FBC59400094BF06 /* ConcentrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86FAD091FBC59400094BF06 /* ConcentrationTests.swift */; };
 		C86FAD151FBC59400094BF06 /* ConcentrationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86FAD141FBC59400094BF06 /* ConcentrationUITests.swift */; };
+		C8FD77C71FC1946E00488A1C /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FD77C61FC1946E00488A1C /* Concentration.swift */; };
+		C8FD77C91FC195C000488A1C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FD77C81FC195C000488A1C /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		C86FAD101FBC59400094BF06 /* ConcentrationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcentrationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86FAD141FBC59400094BF06 /* ConcentrationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationUITests.swift; sourceTree = "<group>"; };
 		C86FAD161FBC59400094BF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8FD77C61FC1946E00488A1C /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		C8FD77C81FC195C000488A1C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 		C86FACF31FBC593F0094BF06 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				C8FD77C61FC1946E00488A1C /* Concentration.swift */,
+				C8FD77C81FC195C000488A1C /* Card.swift */,
 				C86FACF41FBC593F0094BF06 /* AppDelegate.swift */,
 				C86FACF61FBC593F0094BF06 /* ViewController.swift */,
 				C86FACF81FBC593F0094BF06 /* Main.storyboard */,
@@ -261,6 +267,8 @@
 			files = (
 				C86FACF71FBC593F0094BF06 /* ViewController.swift in Sources */,
 				C86FACF51FBC593F0094BF06 /* AppDelegate.swift in Sources */,
+				C8FD77C71FC1946E00488A1C /* Concentration.swift in Sources */,
+				C8FD77C91FC195C000488A1C /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DWLNFPCE6H;
 				INFOPLIST_FILE = Concentration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yesbol.Concentration;
@@ -441,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DWLNFPCE6H;
 				INFOPLIST_FILE = Concentration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yesbol.Concentration;
