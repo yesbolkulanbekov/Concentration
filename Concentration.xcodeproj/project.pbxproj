@@ -80,6 +80,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44E9502D20EA17D9003F45BB /* start */ = {
+			isa = PBXGroup;
+			children = (
+				C86FAD001FBC593F0094BF06 /* Info.plist */,
+				C86FACFD1FBC593F0094BF06 /* LaunchScreen.storyboard */,
+				C86FACFB1FBC593F0094BF06 /* Assets.xcassets */,
+			);
+			path = start;
+			sourceTree = "<group>";
+		};
 		C86FACE81FBC593F0094BF06 = {
 			isa = PBXGroup;
 			children = (
@@ -103,14 +113,12 @@
 		C86FACF31FBC593F0094BF06 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				44E9502D20EA17D9003F45BB /* start */,
 				C8FD77C61FC1946E00488A1C /* Concentration.swift */,
 				C8FD77C81FC195C000488A1C /* Card.swift */,
 				C86FACF41FBC593F0094BF06 /* AppDelegate.swift */,
 				C86FACF61FBC593F0094BF06 /* ViewController.swift */,
 				C86FACF81FBC593F0094BF06 /* Main.storyboard */,
-				C86FACFB1FBC593F0094BF06 /* Assets.xcassets */,
-				C86FACFD1FBC593F0094BF06 /* LaunchScreen.storyboard */,
-				C86FAD001FBC593F0094BF06 /* Info.plist */,
 				4470837D20DE688E00B4C953 /* Themes.swift */,
 			);
 			path = Concentration;
@@ -440,7 +448,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DWLNFPCE6H;
-				INFOPLIST_FILE = Concentration/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Concentration/start/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yesbol.Concentration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -455,7 +463,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DWLNFPCE6H;
-				INFOPLIST_FILE = Concentration/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Concentration/start/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yesbol.Concentration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
