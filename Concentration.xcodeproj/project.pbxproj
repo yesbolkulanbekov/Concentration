@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4470837E20DE688E00B4C953 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470837D20DE688E00B4C953 /* Themes.swift */; };
 		C86FACF51FBC593F0094BF06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86FACF41FBC593F0094BF06 /* AppDelegate.swift */; };
 		C86FACF71FBC593F0094BF06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86FACF61FBC593F0094BF06 /* ViewController.swift */; };
 		C86FACFA1FBC593F0094BF06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86FACF81FBC593F0094BF06 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4470837D20DE688E00B4C953 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		C86FACF11FBC593F0094BF06 /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86FACF41FBC593F0094BF06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C86FACF61FBC593F0094BF06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				C86FACFB1FBC593F0094BF06 /* Assets.xcassets */,
 				C86FACFD1FBC593F0094BF06 /* LaunchScreen.storyboard */,
 				C86FAD001FBC593F0094BF06 /* Info.plist */,
+				4470837D20DE688E00B4C953 /* Themes.swift */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				C86FACF71FBC593F0094BF06 /* ViewController.swift in Sources */,
 				C86FACF51FBC593F0094BF06 /* AppDelegate.swift in Sources */,
 				C8FD77C71FC1946E00488A1C /* Concentration.swift in Sources */,
+				4470837E20DE688E00B4C953 /* Themes.swift in Sources */,
 				C8FD77C91FC195C000488A1C /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

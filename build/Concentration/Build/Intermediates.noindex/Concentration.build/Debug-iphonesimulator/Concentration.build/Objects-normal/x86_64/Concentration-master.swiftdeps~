@@ -1,0 +1,8 @@
+version: "Apple Swift version 4.0.2 (swiftlang-900.0.69.2 clang-900.0.38)"
+options: "73a47694e8740814606390a16e64a609"
+build_time: [1511098556, 577447000]
+inputs:
+  "/Users/damir.yerkin/Dropbox/iOS/Stanford iOS/Stanford iOS 11/Concentration/Concentration/ViewController.swift": [1511096890, 0]
+  "/Users/damir.yerkin/Dropbox/iOS/Stanford iOS/Stanford iOS 11/Concentration/Concentration/AppDelegate.swift": [1510744511, 0]
+  "/Users/damir.yerkin/Dropbox/iOS/Stanford iOS/Stanford iOS 11/Concentration/Concentration/Concentration.swift": [1511098556, 0]
+  "/Users/damir.yerkin/Dropbox/iOS/Stanford iOS/Stanford iOS 11/Concentration/Concentration/Card.swift": [1511095181, 0]
