@@ -10,7 +10,17 @@ import Foundation
 
 
 struct Theme {
+    
+    var defaultValues: [String] {
+        return values[0]
+    }
+    
+    var randomTheme: [String] {
+        return values[values.count.arc4random]
+    }
+    
     var values = [[String]]()
+    
     init() {
         values.append(["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣",
                        "☺️", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍",
