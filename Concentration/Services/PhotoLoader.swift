@@ -7,12 +7,9 @@
 //
 
 import Foundation
-import Photos
-
+import UIKit
 
 class PhotoLoader {
-    let library = PHPhotoLibrary()
-    
     
     func imagePicker(type: UIImagePickerControllerSourceType) -> UIImagePickerController {
         let imagePicker = UIImagePickerController()

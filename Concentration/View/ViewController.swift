@@ -12,19 +12,38 @@ class ViewController: UIViewController {
     
     private var game:Concentration!
     private var emojis = Emojis()
-
+    private var photoLoader = PhotoLoader()
+    private var actionPresenter = ImageSheetPresenter()
+    
     override func viewDidLoad() {
         createNewGame()
+        
+        let chooseButton = UIBarButtonItem(title: "Choose",
+                                           style: UIBarButtonItemStyle.plain,
+                                           target: self, action: #selector(choose))
+        navigationItem.rightBarButtonItem = chooseButton
     }
     
     @IBOutlet private weak var flipCountLabel: UILabel!
     @IBOutlet private var cardButtons: [UIButton]!
     @IBOutlet weak var score: UILabel!
-
+    
     
     
     var numberOfPairsOfCards: Int {
         return (cardButtons.count)/2
+    }
+    
+    @objc func choose() {
+        let alert = actionPresenter.pickImage(
+        takePicture: CommandWith {
+            print("Ptakcepictie ")
+        },
+        choosePicture: CommandWith {
+            print("Donfepcicekhcoosemfprictie")
+        })
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -33,7 +52,7 @@ class ViewController: UIViewController {
         game.flipChanged = flipChanged
         game.scoreChanged = scoreChanged
     }
-
+    
     
     @IBAction func startNewGame(_ sender: UIBarButtonItem) {
         createNewGame()
@@ -41,7 +60,7 @@ class ViewController: UIViewController {
         emojis.randomizeEmojis()
         updateViewFromModel()
     }
-
+    
     
     @IBAction private func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.index(of: sender){
@@ -77,7 +96,7 @@ class ViewController: UIViewController {
     func scoreChanged() {
         score.text = "Score : \( self.game.score)"
     }
-
+    
     
 }
 
