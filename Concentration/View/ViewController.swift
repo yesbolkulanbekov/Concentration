@@ -41,7 +41,8 @@ class ViewController: UIViewController {
             self.present(camera, animated: true, completion: nil)
         },
         choosePicture: CommandWith {
-            print("Donfepcicekhcoosemfprictie")
+            let library = self.photoLoader.imagePicker(type: .photoLibrary)
+            self.present(library, animated: true, completion: nil)
         })
         
         self.present(alert, animated: true, completion: nil)

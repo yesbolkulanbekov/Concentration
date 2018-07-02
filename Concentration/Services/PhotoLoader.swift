@@ -9,18 +9,32 @@
 import Foundation
 import UIKit
 
-class PhotoLoader {
+class PhotoLoader: NSObject {
+    
+    let pickedImages = [UIImage]()
     
     func imagePicker(type: UIImagePickerControllerSourceType) -> UIImagePickerController {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = type
-        //imagePicker.delegate = self
+        imagePicker.delegate = self
         imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: type)!
         return imagePicker
     }
     
 
 }
+
+
+extension PhotoLoader: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let imagesfdsd = image
+        }
+    }
+    
+}
+
+
 
 struct ImageSheetPresenter {
     
@@ -43,14 +57,4 @@ struct ImageSheetPresenter {
 
 
 
-
-//extension EditContactViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-//    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//            output.picked(imageContainer: ImageInfo(image: image))
-//        }
-//        self.dismiss(animated: true, completion: nil)
-//    }
-//
-//}
 
