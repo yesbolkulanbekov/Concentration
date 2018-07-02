@@ -83,11 +83,21 @@
 		44E9502D20EA17D9003F45BB /* start */ = {
 			isa = PBXGroup;
 			children = (
+				C86FACF41FBC593F0094BF06 /* AppDelegate.swift */,
 				C86FAD001FBC593F0094BF06 /* Info.plist */,
 				C86FACFD1FBC593F0094BF06 /* LaunchScreen.storyboard */,
 				C86FACFB1FBC593F0094BF06 /* Assets.xcassets */,
 			);
 			path = start;
+			sourceTree = "<group>";
+		};
+		44E9502E20EA181F003F45BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C8FD77C81FC195C000488A1C /* Card.swift */,
+				C8FD77C61FC1946E00488A1C /* Concentration.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C86FACE81FBC593F0094BF06 = {
@@ -113,10 +123,8 @@
 		C86FACF31FBC593F0094BF06 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				44E9502E20EA181F003F45BB /* Model */,
 				44E9502D20EA17D9003F45BB /* start */,
-				C8FD77C61FC1946E00488A1C /* Concentration.swift */,
-				C8FD77C81FC195C000488A1C /* Card.swift */,
-				C86FACF41FBC593F0094BF06 /* AppDelegate.swift */,
 				C86FACF61FBC593F0094BF06 /* ViewController.swift */,
 				C86FACF81FBC593F0094BF06 /* Main.storyboard */,
 				4470837D20DE688E00B4C953 /* Themes.swift */,
