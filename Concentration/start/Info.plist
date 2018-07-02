@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSCameraUsageDescription</key>
+    <string>Для запуска игры нужны вашы фотографии.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Для запуска игры нужны вашы фотографии..</string>
 </dict>
 </plist>

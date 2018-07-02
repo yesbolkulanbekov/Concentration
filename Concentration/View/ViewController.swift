@@ -37,7 +37,8 @@ class ViewController: UIViewController {
     @objc func choose() {
         let alert = actionPresenter.pickImage(
         takePicture: CommandWith {
-            print("Ptakcepictie ")
+            let camera = self.photoLoader.imagePicker(type: .camera)
+            self.present(camera, animated: true, completion: nil)
         },
         choosePicture: CommandWith {
             print("Donfepcicekhcoosemfprictie")
