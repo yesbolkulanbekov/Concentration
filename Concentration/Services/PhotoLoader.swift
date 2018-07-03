@@ -6,8 +6,11 @@
 //  Copyright © 2018 Yesbol Kulanbekov. All rights reserved.
 //
 
-import Foundation
+
 import UIKit
+
+import OpalImagePicker
+
 
 class PhotoLoader: NSObject {
     
@@ -20,9 +23,25 @@ class PhotoLoader: NSObject {
         imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: type)!
         return imagePicker
     }
+
     
+    func opalPicker() -> OpalImagePickerController {
+        let imagePicker = OpalImagePickerController()
+        imagePicker.imagePickerDelegate = self
+        return imagePicker
+    }
 
+}
 
+extension PhotoLoader: OpalImagePickerControllerDelegate {
+    func imagePickerDidCancel(_ picker: OpalImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
+        print("picked images")
+    }
+    
 }
 
 

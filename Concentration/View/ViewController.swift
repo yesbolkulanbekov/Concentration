@@ -41,7 +41,7 @@ class ViewController: UIViewController {
             self.present(camera, animated: true, completion: nil)
         },
         choosePicture: CommandWith {
-            let library = self.photoLoader.imagePicker(type: .photoLibrary)
+            let library = self.photoLoader.opalPicker()
             self.present(library, animated: true, completion: nil)
         })
         
@@ -59,7 +59,6 @@ class ViewController: UIViewController {
     @IBAction func startNewGame(_ sender: UIBarButtonItem) {
         createNewGame()
         updateTitles()
-        emojis.randomizeEmojis()
         updateViewFromModel()
     }
     
