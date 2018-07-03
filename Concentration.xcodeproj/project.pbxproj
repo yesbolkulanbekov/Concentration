@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07E66B05228FDBC3069E846E /* Pods_ConcentrationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F8BBC559589D76F233D7AA /* Pods_ConcentrationUITests.framework */; };
 		4470837E20DE688E00B4C953 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470837D20DE688E00B4C953 /* Themes.swift */; };
+		4471AA3B20EB50E5007261BB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4471AA3A20EB50E5007261BB /* MenuViewController.swift */; };
 		4481CB4D20EA1D6A00162216 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481CB4C20EA1D6A00162216 /* Command.swift */; };
 		4481CB5020EA1F9100162216 /* Int+arc4random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481CB4F20EA1F9100162216 /* Int+arc4random.swift */; };
 		44AC8FEA20EA250000674DCD /* Emojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AC8FE920EA250000674DCD /* Emojis.swift */; };
@@ -49,6 +50,7 @@
 		25D7C2EB7DAB41E9448EC265 /* Pods-ConcentrationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcentrationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConcentrationUITests/Pods-ConcentrationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		42F8BBC559589D76F233D7AA /* Pods_ConcentrationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcentrationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4470837D20DE688E00B4C953 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		4471AA3A20EB50E5007261BB /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4481CB4C20EA1D6A00162216 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		4481CB4F20EA1F9100162216 /* Int+arc4random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+arc4random.swift"; sourceTree = "<group>"; };
 		44AC8FE920EA250000674DCD /* Emojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emojis.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				C86FACF61FBC593F0094BF06 /* ViewController.swift */,
 				C86FACF81FBC593F0094BF06 /* Main.storyboard */,
 				44AC8FE920EA250000674DCD /* Emojis.swift */,
+				4471AA3A20EB50E5007261BB /* MenuViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44AC8FEA20EA250000674DCD /* Emojis.swift in Sources */,
+				4471AA3B20EB50E5007261BB /* MenuViewController.swift in Sources */,
 				4481CB5020EA1F9100162216 /* Int+arc4random.swift in Sources */,
 				C86FACF71FBC593F0094BF06 /* ViewController.swift in Sources */,
 				44E9503120EA18DE003F45BB /* PhotoLoader.swift in Sources */,

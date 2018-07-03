@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    var gameMode: GameMode!
+    
+    
     private var game:Concentration!
     private var emojis = Emojis()
     private var photoLoader = PhotoLoader()
@@ -51,6 +55,7 @@ class ViewController: UIViewController {
     
     func createNewGame() {
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+        emojis.setEmojis(gameMode)
         game.flipChanged = flipChanged
         game.scoreChanged = scoreChanged
     }
@@ -66,8 +71,8 @@ class ViewController: UIViewController {
     @IBAction private func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.index(of: sender){
             game.chooseCard(at: cardNumber)
-//          updateViewFromModel()
-            updateViewFromModelWithImages()
+            updateViewFromModel()
+            //updateViewFromModelWithImages()
         }
     }
     
@@ -82,7 +87,7 @@ class ViewController: UIViewController {
             } else {
                 button.setImage(nil, for: .normal)
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
-            }
+        }
         }
     }
     
@@ -117,9 +122,6 @@ class ViewController: UIViewController {
     
     
 }
-
-
-
 
 
 

@@ -16,6 +16,18 @@ struct Emojis {
         emojiChoices = theme.randomTheme
     }
     
+    mutating func setEmojis(_ gameMode: GameMode) {
+        let theme = Theme()
+        switch gameMode {
+        case .animals:
+            emojiChoices = theme.values[1]
+        case .emojis:
+            emojiChoices = theme.values[0]
+        case .friends:
+            emojiChoices = theme.values[0]
+        }
+    }
+    
     private var emojiChoices = Theme().defaultValues
     
     private var emoji = [Card:String]()
