@@ -12,7 +12,10 @@ import UIKit
 class MenuViewController: UIViewController {
     
 
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Match"
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

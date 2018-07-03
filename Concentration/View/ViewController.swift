@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     private var alerPresenter = AlertPresenter()
     
     override func viewDidLoad() {
+        setCustomNavLabel()
+        scoreLabel.text = "Score: 0"
         self.photoLoader.hasPickedImages = CommandWith<[UIImage]> { images in
             self.hasPickedImages(images)
         }
@@ -36,6 +38,15 @@ class ViewController: UIViewController {
             view.isUserInteractionEnabled = false
         default: break
         }
+    }
+    
+    let scoreLabel = UILabel()
+    private func setCustomNavLabel() {
+        scoreLabel.font = UIFont.preferredFont(forTextStyle: .headline).withSize(22)
+        scoreLabel.textColor = .orange
+        scoreLabel.textAlignment = .center
+        navigationItem.titleView = scoreLabel
+        scoreLabel.sizeToFit()
     }
     
     @IBOutlet private weak var flipCountLabel: UILabel!
@@ -161,7 +172,9 @@ class ViewController: UIViewController {
     }
     
     func scoreChanged() {
-        score.text = "Score : \( self.game.score)"
+        scoreLabel.text = "Score : \( self.game.score)"
+        scoreLabel.sizeToFit()
+
     }
     
     
