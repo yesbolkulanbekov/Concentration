@@ -67,7 +67,7 @@ class ViewController: UIViewController {
     }
     
     private func hasPickedImages(_ images: [UIImage]) {
-        guard images.count >= 20 else {
+        guard images.count >= 24 else {
             presentAlert(images.count)
             return
         }
@@ -106,7 +106,13 @@ class ViewController: UIViewController {
     @IBAction func startNewGame(_ sender: UIBarButtonItem) {
         createNewGame()
         updateTitles()
-        updateViewFromModel()
+        
+        switch gameMode {
+        case .friends:
+            updateViewFromModelWithImages()
+        default:
+            updateViewFromModel()
+        }
     }
     
     

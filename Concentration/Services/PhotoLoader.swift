@@ -21,7 +21,7 @@ class PhotoLoader: NSObject {
     private var image = [Card:UIImage]()
     
     func image(for card: Card) -> UIImage {
-        var pickedImages = self.pickedImages.prefix(20)
+        var pickedImages = self.pickedImages.prefix(24)
         if image[card] == nil, pickedImages.count > 0 {
             image[card] = pickedImages.remove(at: pickedImages.count.arc4random)
         }
@@ -76,7 +76,7 @@ extension PhotoLoader: ImagePickerDelegate {
     }
     
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        imagePicker.dismiss(animated: true) 
+        imagePicker.dismiss(animated: true)
 
     }
     
