@@ -57,15 +57,23 @@ class ViewController: UIViewController {
     
     private func hasPickedImages(_ images: [UIImage]) {
         guard images.count >= 20 else {
-            let alert = alerPresenter.showAlert(choosePicture: CommandWith {
-                let library = self.photoLoader.customImagePicker()
-                self.present(library, animated: true, completion: nil)
-            }, count: images.count)
-            
-            self.present(alert, animated: true, completion: nil)
+            presentAlert(images.count)
             return
         }
         
+        view.alpha = 1
+        view.isUserInteractionEnabled = true
+    
+    }
+    
+    
+    private func presentAlert(_ count: Int) {
+        let alert = alerPresenter.showAlert(choosePicture: CommandWith {
+            let library = self.photoLoader.customImagePicker()
+            self.present(library, animated: true, completion: nil)
+        }, count: count)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func choose() {
@@ -102,8 +110,13 @@ class ViewController: UIViewController {
         if let cardNumber = cardButtons.index(of: sender){
             game.chooseCard(at: cardNumber)
             
-            updateViewFromModel()
-            //updateViewFromModelWithImages()
+            switch gameMode {
+            case .friends:
+                updateViewFromModelWithImages()
+            default:
+                updateViewFromModel()
+            }
+            
         }
     }
     
@@ -113,7 +126,7 @@ class ViewController: UIViewController {
             let card = game.cards[index]
             if card.isFaceUp {
                 button.imageView?.contentMode = .scaleAspectFit
-                button.setImage(photoLoader.pickedImages[0], for: .normal)
+                button.setImage(photoLoader.image(for: card), for: .normal)
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else {
                 button.setImage(nil, for: .normal)
