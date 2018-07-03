@@ -11,7 +11,7 @@ import UIKit
 
 class PhotoLoader: NSObject {
     
-    let pickedImages = [UIImage]()
+    var pickedImages = [UIImage]()
     
     func imagePicker(type: UIImagePickerControllerSourceType) -> UIImagePickerController {
         let imagePicker = UIImagePickerController()
@@ -22,14 +22,16 @@ class PhotoLoader: NSObject {
     }
     
 
+
 }
 
 
 extension PhotoLoader: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            let imagesfdsd = image
+            pickedImages.append(image)
         }
+        picker.dismiss(animated: true, completion: nil)
     }
     
 }
