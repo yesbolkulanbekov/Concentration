@@ -88,17 +88,10 @@ class ViewController: UIViewController {
     }
     
     @objc func choose() {
-        let alert = actionPresenter.pickImage(
-            takePicture: CommandWith {
-                let camera = self.photoLoader.imagePicker(type: .camera)
-                self.present(camera, animated: true, completion: nil)
-            },
-            choosePicture: CommandWith {
-                let library = self.photoLoader.customImagePicker()
-                self.present(library, animated: true, completion: nil)
-        })
         
-        self.present(alert, animated: true, completion: nil)
+        let library = self.photoLoader.customImagePicker()
+        self.present(library, animated: true, completion: nil)
+
     }
     
     
