@@ -18,14 +18,24 @@ class ViewController: UIViewController {
     private var emojis = Emojis()
     private var photoLoader = PhotoLoader()
     private var actionPresenter = ImageSheetPresenter()
+    private var alerPresenter = AlertPresenter()
     
     override func viewDidLoad() {
+        self.photoLoader.hasPickedImages = CommandWith<[UIImage]> { images in
+            self.hasPickedImages(images)
+        }
         createNewGame()
-        
-        let chooseButton = UIBarButtonItem(title: "Choose",
-                                           style: UIBarButtonItemStyle.plain,
-                                           target: self, action: #selector(choose))
-        navigationItem.rightBarButtonItem = chooseButton
+        setNavButton()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        switch gameMode {
+        case .friends:
+            view.alpha = 0.4
+            view.isUserInteractionEnabled = false
+        default: break
+        }
     }
     
     @IBOutlet private weak var flipCountLabel: UILabel!
@@ -38,15 +48,35 @@ class ViewController: UIViewController {
         return (cardButtons.count)/2
     }
     
+    private func setNavButton() {
+        let chooseButton = UIBarButtonItem(title: "Choose",
+                                           style: UIBarButtonItemStyle.plain,
+                                           target: self, action: #selector(choose))
+        navigationItem.rightBarButtonItem = chooseButton
+    }
+    
+    private func hasPickedImages(_ images: [UIImage]) {
+        guard images.count >= 20 else {
+            let alert = alerPresenter.showAlert(choosePicture: CommandWith {
+                let library = self.photoLoader.customImagePicker()
+                self.present(library, animated: true, completion: nil)
+            }, count: images.count)
+            
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+    }
+    
     @objc func choose() {
         let alert = actionPresenter.pickImage(
-        takePicture: CommandWith {
-            let camera = self.photoLoader.imagePicker(type: .camera)
-            self.present(camera, animated: true, completion: nil)
-        },
-        choosePicture: CommandWith {
-            let library = self.photoLoader.opalPicker()
-            self.present(library, animated: true, completion: nil)
+            takePicture: CommandWith {
+                let camera = self.photoLoader.imagePicker(type: .camera)
+                self.present(camera, animated: true, completion: nil)
+            },
+            choosePicture: CommandWith {
+                let library = self.photoLoader.customImagePicker()
+                self.present(library, animated: true, completion: nil)
         })
         
         self.present(alert, animated: true, completion: nil)
@@ -71,13 +101,14 @@ class ViewController: UIViewController {
     @IBAction private func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.index(of: sender){
             game.chooseCard(at: cardNumber)
+            
             updateViewFromModel()
             //updateViewFromModelWithImages()
         }
     }
     
     private func updateViewFromModelWithImages() {
-        for index in cardButtons.indices{
+        for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFaceUp {
@@ -87,7 +118,7 @@ class ViewController: UIViewController {
             } else {
                 button.setImage(nil, for: .normal)
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
-        }
+            }
         }
     }
     

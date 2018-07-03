@@ -10,11 +10,13 @@
 import UIKit
 
 import OpalImagePicker
-
+import ImagePicker
 
 class PhotoLoader: NSObject {
     
     var pickedImages = [UIImage]()
+    
+    var hasPickedImages = CommandWith<[UIImage]> { _ in}
     
     func imagePicker(type: UIImagePickerControllerSourceType) -> UIImagePickerController {
         let imagePicker = UIImagePickerController()
@@ -25,6 +27,12 @@ class PhotoLoader: NSObject {
     }
 
     
+    func customImagePicker() -> ImagePickerController {
+        let imagePicker = ImagePickerController()
+        imagePicker.delegate = self
+        return imagePicker
+    }
+
     func opalPicker() -> OpalImagePickerController {
         let imagePicker = OpalImagePickerController()
         imagePicker.imagePickerDelegate = self
@@ -39,11 +47,29 @@ extension PhotoLoader: OpalImagePickerControllerDelegate {
     }
     
     func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
-        print("picked images")
+
     }
     
 }
 
+
+extension PhotoLoader: ImagePickerDelegate {
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        
+    }
+    
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        imagePicker.dismiss(animated: true) {
+            self.hasPickedImages.perform(with: images)
+        }
+    }
+    
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+    
+    }
+    
+    
+}
 
 extension PhotoLoader: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -60,7 +86,7 @@ extension PhotoLoader: UIImagePickerControllerDelegate,UINavigationControllerDel
 struct ImageSheetPresenter {
     
     func pickImage(takePicture: Command, choosePicture: Command) -> UIAlertController {
-        let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionSheetController = UIAlertController(title: nil, message: nil , preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         actionSheetController.addAction(cancelAction)
         let takePictureAction = UIAlertAction(title: "Камера", style: .default) { action -> Void in
@@ -76,6 +102,20 @@ struct ImageSheetPresenter {
     }
 }
 
+
+struct AlertPresenter {
+    
+    func showAlert(choosePicture: Command, count: Int) -> UIAlertController {
+        let alertController = UIAlertController(title: "Choose More", message: "You have only chosen \(count)", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+        let choosePictureAction = UIAlertAction(title: "Камера", style: .default) { action -> Void in
+            choosePicture.perform()
+        }
+        alertController.addAction(choosePictureAction)
+        return alertController
+    }
+}
 
 
 
