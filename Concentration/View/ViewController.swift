@@ -27,13 +27,13 @@ class ViewController: UIViewController {
             self.hasPickedImages(images)
         }
         createNewGame()
-        setNavButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         switch gameMode {
         case .friends:
+            setNavButton()
             view.alpha = 0.4
             view.isUserInteractionEnabled = false
         default: break
@@ -71,6 +71,7 @@ class ViewController: UIViewController {
             presentAlert(images.count)
             return
         }
+        pickedImages = images
         
         view.alpha = 1
         view.isUserInteractionEnabled = true
@@ -94,10 +95,12 @@ class ViewController: UIViewController {
 
     }
     
+    private var pickedImages = [UIImage]()
     
     func createNewGame() {
         game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
         emojis.setEmojis(gameMode)
+        photoLoader.pickedImages = pickedImages
         game.flipChanged = flipChanged
         game.scoreChanged = scoreChanged
     }

@@ -17,11 +17,11 @@ class PhotoLoader: NSObject {
     var hasPickedImages = CommandWith<[UIImage]> { _ in}
     
     var pickedImages = [UIImage]()
+    
 
     private var image = [Card:UIImage]()
     
     func image(for card: Card) -> UIImage {
-        var pickedImages = self.pickedImages.prefix(24)
         if image[card] == nil, pickedImages.count > 0 {
             image[card] = pickedImages.remove(at: pickedImages.count.arc4random)
         }
@@ -69,7 +69,7 @@ extension PhotoLoader: ImagePickerDelegate {
     }
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        pickedImages = images
+        pickedImages = Array(images.prefix(24))
         imagePicker.dismiss(animated: true) {
             self.hasPickedImages.perform(with: images)
         }

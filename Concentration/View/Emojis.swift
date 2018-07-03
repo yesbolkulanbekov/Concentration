@@ -36,6 +36,7 @@ struct Emojis {
         if emoji[card] == nil, emojiChoices.count > 0 {
             emoji[card] = emojiChoices.remove(at: emojiChoices.count.arc4random)
         }
+
         return emoji[card] ?? "?"
     }
 }
